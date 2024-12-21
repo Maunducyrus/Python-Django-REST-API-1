@@ -7,4 +7,7 @@ from .serializer import UserSerializer
 
 
 # Create your views here.
-
+@api_view(['GET'])
+# defining endpoint function
+def get_user(request):
+    return Response(UserSerializer({'name': "Cyrus", "age": 34}))
