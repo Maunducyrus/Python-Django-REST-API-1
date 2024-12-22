@@ -7,6 +7,6 @@ urlpatterns = [
     # path to the end point
     path('users/create/', create_user, name='create_user'),
     # url for all users
-    path('users/<int:pk>', create_user, name='create_user'),
+    path('users/<int:pk>', user_detail, name='user_detail'),
 
 ]
