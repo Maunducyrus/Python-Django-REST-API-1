@@ -16,8 +16,7 @@ from .serializer import UserSerializer
 def get_users(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
-    return JsonResponse(users, safe=False)
-    # return Response(Serializer.data)
+    return Response(serializer.data)
 
 @api_view(['POST'])
 def create_user(request):
@@ -27,3 +26,6 @@ def create_user(request):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# adding more methods
+@api_view(['GET', 'PUT', 'DELETE'])
