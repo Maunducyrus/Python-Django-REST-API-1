@@ -14,7 +14,7 @@ def get_user(request):
     return Response(UserSerializer({'name': "Cyrus", "age": 34}).data)
 
 @api_view(['POST'])
-def Create_user(request):
+def create_user(request):
     # serializer is used for sending data the conditions are checked
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
