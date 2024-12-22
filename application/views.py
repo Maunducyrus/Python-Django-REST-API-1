@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -15,7 +16,8 @@ from .serializer import UserSerializer
 def get_users(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
-    return Response(Serializer.data)
+    return JsonResponse(users, safe=False)
+    # return Response(Serializer.data)
 
 @api_view(['POST'])
 def create_user(request):
