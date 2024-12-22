@@ -9,5 +9,13 @@ from .serializer import UserSerializer
 # Create your views here.
 @api_view(['GET'])
 # defining endpoint function
+
 def get_user(request):
     return Response(UserSerializer({'name': "Cyrus", "age": 34}).data)
+
+@api_view(['POST'])
+def Create_user(request):
+    serializer = UserSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
