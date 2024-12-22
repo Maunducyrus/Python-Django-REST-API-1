@@ -10,4 +10,4 @@ from .serializer import UserSerializer
 @api_view(['GET'])
 # defining endpoint function
 def get_user(request):
-    return Response(UserSerializer({'name': "Cyrus", "age": 34}))
+    return Response(UserSerializer({'name': "Cyrus", "age": 34}).data)
