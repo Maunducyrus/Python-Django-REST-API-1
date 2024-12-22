@@ -1,7 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.serializers import Serializer
 from .models import User
 from .serializer import UserSerializer
 
@@ -9,7 +8,6 @@ from .serializer import UserSerializer
 # Create your views here.
 @api_view(['GET'])
 # defining endpoint function
-
 def get_users(request):
     users = User.objects.all()
     serializer = UserSerializer(users, many=True)
@@ -26,6 +24,7 @@ def create_user(request):
 
 # adding more methods
 @api_view(['GET', 'PUT', 'DELETE'])
+# pk stands for the primary key
 def user_detail(request, pk):
     try:
         user = User.objects.get(pk=pk)
