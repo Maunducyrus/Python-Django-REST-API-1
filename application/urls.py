@@ -3,5 +3,7 @@ from django.urls import path
 from .views import get_user
 
 urlpatterns = [
-    path('users/', get_user, name='user'),
+    path('users/', get_user, name='get_user'),
+    # path to the end point
+    path('users/create/', get_user, name='create_user'),
 ]
